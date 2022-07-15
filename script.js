@@ -64,6 +64,24 @@ function updateScores(result, scores) {
     return scores;
 }
 
+function bonk() {
+    screen.appendChild(bat);
+
+    if (scores["player"] == 5) {
+        bat.classList.add('bat-player');
+        setTimeout(() => {
+            computerImg.style.height = "50px"}, 1000);
+    }
+    else {
+        bat.classList.add('bat-computer');
+        setTimeout(() => {
+            playerImg.style.height = "50px"}, 1000);
+    }
+
+    setTimeout(() => {
+        overlay.setAttribute('style', 'display: flex;')}, 3000);
+}
+
 function checkGameEnd(scores) {
     if (scores["player"] != rounds && scores["computer"] != rounds)
         return false;
@@ -87,8 +105,9 @@ function resetGame() {
     updateChoiceImg("none", "none");
     message.textContent = "choose your element below!";
     overlay.setAttribute('style', 'display: none;');
-    document.querySelector('.bat').remove();
+    bat.remove();
 }
+
 const playerScore = document.querySelector('.player-score')
 const computerScore = document.querySelector('.computer-score')
 const playerSelectImg = document.querySelector('.player-selection');
@@ -97,17 +116,26 @@ const playerImg = document.querySelector('.player-img');
 const computerImg = document.querySelector('.computer-img');
 const overlay = document.querySelector('.overlay');
 
+const title = document.querySelector('.title');
+const content = document.querySelector('.content');
 const message = document.querySelector('.message');
 const scoreboard = document.querySelector('.scoreboard');
 const buttons = document.querySelectorAll('.choices button');
 const restart = document.querySelector('.restart');
 const screen = document.querySelector('.screen');
 
+const bat = document.createElement('img');
+bat.setAttribute('src', './assets/bat.png');
+
 let gameEnd = false;
 let scores = {
     player: 0,
     computer: 0
 };
+
+title.style.opacity = "100%";
+setTimeout(() => {
+    content.style.opacity = "100%"}, 2000);
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -122,26 +150,3 @@ buttons.forEach((button) => {
 restart.addEventListener('click', () => {
     resetGame();
 });
-
-
-function bonk() {
-    let bat = document.createElement('img');
-    bat.setAttribute('src', './assets/bat.png');
-    screen.appendChild(bat);
-    bat.classList.add('bat');
-
-    if (scores["player"] == 5) {
-        bat.classList.add('bat-player');
-        setTimeout(() => {
-            computerImg.style.height = "50px"}, 1000);
-    }
-    else {
-        bat.classList.add('bat-computer');
-        setTimeout(() => {
-            playerImg.style.height = "50px"}, 1000);
-    }
-
-    setTimeout(() => {
-        overlay.setAttribute('style', 'display: flex;')}, 3000);
-    
-}

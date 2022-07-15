@@ -9,39 +9,41 @@
     <link href="./style.css" rel="stylesheet">
 </head>
 <body>
-    <!--Rock Paper Scissors | Fire Water Grass 🔥 🌊 🌿-->
     <div class="title">
         <h1>elemental shibe battle</h1>
         <p>robots are taking over the world! it is all up to you - master of the arcane arts - to save humanity...</p>
     </div>
     
-    <div class="screen">
-        <div class="player">
-            <img class="player-img" src="./assets/mage.png">
-            <img class="player-selection">
+    <div class="content">
+        <div class="screen">
+            <div class="player">
+                <img class="player-img" src="./assets/mage.png">
+                <img class="player-selection">
+            </div>
+            <div class="computer">
+                <img class="computer-selection">
+                <img class="computer-img" src="./assets/shibe.png">
+            </div>
         </div>
-        <div class="computer">
-            <img class="computer-selection">
-            <img class="computer-img" src="./assets/shibe.png">
+        <div class="scoreboard">
+            <div class="player">
+                <p>you (the goodest boi)</p>
+                <p class="player-score">0</p>
+            </div>
+            <div class="message">choose your element below!</div>
+            <div class="computer">
+                <p>robo shibe (bad)</p>
+                <p class="computer-score">0</p>
+            </div>
         </div>
-    </div>
-    <div class="scoreboard">
-        <div class="player">
-            <p>you (the goodest boi)</p>
-            <p class="player-score">0</p>
-        </div>
-        <div class="message">choose your element below!</div>
-        <div class="computer">
-            <p>robo shibe (bad)</p>
-            <p class="computer-score">0</p>
+    
+        <div class="choices">
+            <button class="fire"><img src="./assets/fire.png"></button> 
+            <button class="water"><img src="./assets/water.png"></button> 
+            <button class="grass"><img src="./assets/grass.png"></button> 
         </div>
     </div>
 
-    <div class="choices">
-        <button class="fire"><img src="./assets/fire.png"></button> 
-        <button class="water"><img src="./assets/water.png"></button> 
-        <button class="grass"><img src="./assets/grass.png"></button> 
-    </div>
     
     <div class="overlay">
         <button class="restart">try again at saving humanity?</button>

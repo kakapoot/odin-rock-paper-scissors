@@ -16,6 +16,20 @@ body {
     background-color: #eeeeee;
 }
 
+.title {
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 2s;
+}
+
 .choices {
     display: flex;
     gap: 2vw;
