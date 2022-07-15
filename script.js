@@ -115,6 +115,7 @@ function resetGame() {
     scores['player'] = scores['computer'] = 0;
 
     updateScores(0, scores);
+    updateImg(scores);
     updateChoiceImg('none', 'none');
     message.textContent = 'choose your element below!';
     overlay.setAttribute('style', 'display: none;');
