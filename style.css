@@ -1,26 +1,41 @@
+/* TODO: refactor code */
+
+@font-face {
+    font-family: 'Gordita';
+    src: url("../assets/Gordita-Bold.otf");
+}
+
 body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Gordita', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    
+    font-size: 1.2vw;
+    background-color: #eeeeee;
 }
 
 .choices {
     display: flex;
-    gap: 50px;
+    gap: 2vw;
+    padding-bottom: 2vw;
 }
 
 .choices button {
-    width: 10vw;
-    height: 10vw;
-    font-size: 5vw;
+    width: 8vw;
+    height: 8vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.choices button img {
+    width: 4vw;
 }
 
 .scoreboard {
-    width: 60vw;
+    width: 50vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -29,15 +44,46 @@ body {
 
 .scoreboard .player,
 .scoreboard .computer {
-    font-size: 20px;
+    font-size: 1.4vw;
     text-align: center;
 }
 
+.scoreboard .message {
+    width: 30vw;
+    padding: 1vw;
+    font-size: 1.2vw;
+    flex-shrink: 0;
+}
+
+button {
+    background-color: #eeeeee;
+    border: 0.4vw solid black;
+    border-radius: 0.8vw;
+}
+
+button:hover {
+    transform: scale(1.1);
+    text-transform: scale(1.1);
+}
+
+.fire:hover {
+    border-color: #f76304;
+}
+
+.water:hover {
+    border-color: #009bbe;
+}
+
+.grass:hover {
+    border-color: #0ba206;
+}
+
 .screen {
-    background-color: grey;
-    min-width: 700px;
-    width: 60vw;
-    height: 50vh;
+    background-color: #d0d0d0;
+    padding: 1vw;
+    border-radius: 2vw;
+    min-width: 50vw;
+    height: 40vh;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -45,7 +91,8 @@ body {
 
 .player-selection,
 .computer-selection {
-    font-size: 80px;
+    padding: 3vw;
+    width: 7vw;
 }
 
 .screen .player, 
@@ -57,8 +104,9 @@ body {
 
 .player-img,
 .computer-img {
-    width: 100px;
+    width: 10vw;
     height: auto;
+    transition: width 1s;
 }
 
 .player-img {
@@ -66,7 +114,7 @@ body {
 }
 
 .computer-img {
-    filter: sepia(100%);
+    filter: grayscale(100%);
 }
 
 .overlay {
@@ -85,7 +133,60 @@ body {
 }
 
 .overlay button {
-    font-size: 20px;
+    font-family: 'Gordita', sans-serif;
+    font-size: 2vw;
     width: 40vw;
     height: 10vw;
+}
+
+.bat-player {
+    position: absolute;
+    width: 20vw;
+    animation: bonk-player 2s forwards;
+}
+
+@keyframes bonk-player {
+    0% {
+        transform: translateX(0) rotate(0);
+    }
+    30% {
+        transform: translateX(180%);
+    }
+    50% {
+        transform: translateX(180%) rotate(100deg);
+    }
+}
+
+.bat-computer {
+    transform: scaleX(-1);
+    position: absolute;
+    left: 60vw;
+    width: 20vw;
+    animation: bonk-computer 2s forwards;
+}
+
+@keyframes bonk-computer {
+    0% {
+        transform: scaleX(-1) translateX(0) rotate(0);
+    }
+    30% {
+        transform: scaleX(-1) translateX(180%);
+    }
+    50% {
+        transform: scaleX(-1) translateX(180%) rotate(100deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.winner {
+    animation: pulse 1s infinite;
 }
