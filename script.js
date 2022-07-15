@@ -8,9 +8,9 @@ function computerPlay() {
 
 function updateChoiceImg(playerSelection, computerSelection) {
     let choicesImg = {
-        "fire" : "../assets/fire.png",
-        "water" : "../assets/water.png ",
-        "grass" : "../assets/grass.png",
+        "fire" : "./assets/fire.png",
+        "water" : "./assets/water.png ",
+        "grass" : "./assets/grass.png",
         "none" : ""
     }
     playerSelectImg.setAttribute('src', choicesImg[playerSelection]);
@@ -126,7 +126,7 @@ restart.addEventListener('click', () => {
 
 function bonk() {
     let bat = document.createElement('img');
-    bat.setAttribute('src', '../assets/bat.png');
+    bat.setAttribute('src', './assets/bat.png');
     screen.appendChild(bat);
     bat.classList.add('bat');
 
