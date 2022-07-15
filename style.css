@@ -153,9 +153,12 @@ button:hover {
     height: 10vw;
 }
 
-.bat-player {
+.bat {
     position: absolute;
     width: 20vw;
+}
+
+.bat-player {
     animation: bonk-player 2s forwards;
 }
 
@@ -173,9 +176,7 @@ button:hover {
 
 .bat-computer {
     transform: scaleX(-1);
-    position: absolute;
     left: 60vw;
-    width: 20vw;
     animation: bonk-computer 2s forwards;
 }
 

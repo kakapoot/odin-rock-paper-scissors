@@ -66,6 +66,7 @@ function updateScores(result, scores) {
 
 function bonk() {
     screen.appendChild(bat);
+    bat.style.opacity = '100%';
 
     if (scores["player"] == 5) {
         bat.classList.add('bat-player');
@@ -105,7 +106,13 @@ function resetGame() {
     updateChoiceImg("none", "none");
     message.textContent = "choose your element below!";
     overlay.setAttribute('style', 'display: none;');
-    bat.remove();
+    bat.style.opacity = '0';
+    if (document.querySelector('.bat-computer')) {
+        bat.classList.remove('bat-computer');
+    }
+    else {
+        bat.classList.remove('bat-player');
+    }
 }
 
 const playerScore = document.querySelector('.player-score')
@@ -126,6 +133,7 @@ const screen = document.querySelector('.screen');
 
 const bat = document.createElement('img');
 bat.setAttribute('src', './assets/bat.png');
+bat.classList.add('bat');
 
 let gameEnd = false;
 let scores = {
